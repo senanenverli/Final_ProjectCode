@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model Order
+<main>
+    <section class="cart-section dark-con">
+        <div id="cart-container" class="container d-md-block d-none">
+            <div id="alert">
+                <div>
+                    <p class="dark-p langdata">Your cart is currently empty.</p>
+                </div>
+
+            </div>
+            <table id="table-cont" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <td colspan="3">PRODUCTS</td>
+                        <td>PRICE</td>
+                        <td>QUANTITY</td>
+                        <td>SUBTOTAL</td>
+                    </tr>
+                </thead>
+                <tbody class="cart-item-container">
+                    <table id="table-cont-mobile" style="width: 100%;">
+                        <tbody class=" cart-item-container-mob">
+                            <tr>
+                                <th>
+                            <tr>
+                                <th>Product:</th>
+                                <td style="text-align: right;">@Model.ProductName</td>
+                            </tr>
+                            <tr>
+                                <th>Price:</th>
+                                <td style="text-align: right;">@Model.Price</td>
+                            </tr>
+                            <tr>
+                                <th>Quantity:</th>
+                                <td style="text-align: right;"><input id="price" type="text" asp-for="Quantity"></td>
+                            </tr>
+                            <tr class="last-tr">
+                                <th>Subtotal:</th>
+                                <td style="text-align: right;" class="subtotal">$0.00</td>
+                            </tr>
+                            </th>
+                        <td style="text-align: right;">
+                            <a href="#!" data-id=${cart.product_id} class="remove-btn remove delete">x</a>
+                        </td>
+                        </tr>
+
+                </tbody>
+            </table>
+            </tbody>
+            </table>
+            <div id="button-shop">
+                <button class="mt-4"><a href="../pages/products.html" class="langdata">Return to shop</a></button>
+            </div>
+            <div sty class="mt-4 d-flex justify-content-end gap-3" id="checkout">
+            </div>
+        </div>
+        <div id="cart-container" class="container d-md-none d-block">
+            <div id="alert">
+            </div>
+
+            <div id="button-shop">
+                <a class='clear-btn' href="#">Clear</a>
+                <a href="checkout.html">Proceed to checkout</a>
+            </div>
+            <div class="mt-4 d-flex justify-content-center flex-column gap-3 text-center" id="checkout">
+            </div>
+        </div>
+    </section>
+</main>
+@section Scripts{
+    <script>
+        // Function to update subtotal based on quantity
+        function updateSubtotal() {
+            const rows = document.querySelectorAll('.cart-item-container tr');
+            rows.forEach(row => {
+                const priceElement = row.querySelector('.price');
+                const quantityInput = row.querySelector('.quantity');
+                const subtotalElement = row.querySelector('.subtotal');
+
+                if (priceElement && quantityInput && subtotalElement) {
+                    const price = parseFloat(priceElement.getAttribute('data-price'));
+                    const quantity = parseInt(quantityInput.value, 10);
+
+                    // Calculate subtotal with rounding to two decimal places
+                    const subtotal = Math.round((price * quantity) * 100) / 100;
+
+                    // Update subtotal in the DOM
+                    subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+                }
+            });
+        }
+
+        // Event listener to update subtotal when quantity changes
+        document.querySelectorAll('.quantity').forEach(input => {
+            input.addEventListener('input', updateSubtotal);
+        });
+
+        // Initial update
+        updateSubtotal();
+    </script>
+}

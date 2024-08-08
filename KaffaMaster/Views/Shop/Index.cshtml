@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    List<Category> categories = ViewData["Categories"] as List<Category>;
+}
+@model List<Product>
+<main>
+    <section class="shop-section dark-con">
+        <div class="container">
+            <button class="sidebar-button d-xl-none">
+                <i class="fa-solid fa-sliders"></i>
+            </button>
+            <div class="row">
+                <div class="shop-sidebar col-xl-4 dark-con">
+                    <button class="icon-x-shop d-xl-none">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="search-container-green d-flex justify-content-center align-items-center mb-5">
+                        <form method="get" asp-action="Index">
+                            <input type="search" name="input" placeholder="Search for products...">
+                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div>
+                        <div class="heading d-flex gap-3 align-items-center">
+                            <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+                            <h4 class="langdata">PRODUCT CATEGORIES</h4>
+                        </div>
+                        <div class="shop-nav d-flex flex-column gap-2">
+                                @foreach (var catregory in categories)
+                                {
+                                    <div>
+                                         <i class="fa-solid fa-caret-right"></i>
+                                         <a asp-action="Index" asp-controller="Shop" asp-route-categoryId="@catregory.Id" class="langdata">@catregory.CategoryName</a>
+                                    </div>
+
+
+                                }
+                        </div>
+                    </div>
+                    <div>
+                        <div class="heading d-flex gap-3 align-items-center">
+                            <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+                            <h4 class="langdata">PRODUCT TAGS</h4>
+                        </div>
+                        <div class="tags mt-3">
+                            <div class="row row-gap-2">
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a class="langdata" class="dark-a" href="#">arabica</a>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a class="langdata" class="dark-a" href="#">chocolate</a>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a class="langdata" class="dark-a" href="#">coffee</a>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a class="langdata" class="dark-a" href="#">delivery</a>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a class="langdata" class="dark-a" href="#">espresso</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-8" >
+                    <div class="all-products-heading d-flex justify-content-between mb-4">
+                        <div class="d-flex align-items-center">
+                            <p class="dark-p langdata">Showing 1-6 of 19 results</p>
+                        </div>
+                        <select name="" id="">
+                            <option class="langdata" value="1">Default sorting</option>
+                            <option class="langdata" value="2">Sort by popularity</option>
+                            <option class="langdata" value="3">Sort by average rating</option>
+                            <option class="langdata" value="4">Sort by latest</option>
+                            <option class="langdata" value="5">Sort by price: low to high</option>
+                            <option class="langdata" value="6">Sort by price: high to low</option>
+                        </select>
+                    </div>
+                    <div id="all-products-row" class="row row-gap-2" id="productBox">
+                        
+                        <input id="productCount" value="@ViewBag.ProductCount" hidden />
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="img-container position-relative">
+                                <div class="background"></div>
+                                <img src="~/assets/images/@item.PosterImage" alt="">
+                                <div class="d-flex flex-column row-gap-2">
+                                    <a href="details.html?id=${item.id}" target="_blank">Read More</a>
+                                        <a id="cart-add-btn" asp-action="AddProductToBasket" asp-controller="Shop" asp-route-productId="@item.Id">Add to Cart</a>
+                                </div>
+                            </div>
+                                    <div class="icons d-flex justify-content-center gap-1">
+                            @for (int i = 0; i < item.Rating; i++)
+                                {
+                                        <i class="fa-solid fa-star"></i>
+                             
+                                }
+                                    </div>
+                            <div class="d-flex align-items-center flex-column">
+                                <h5>@item.Title</h5>
+                                <h5>@item.Price $<h5>
+                            </div>
+                        </div>
+                        }
+
+                    <div class="products-btn d-flex justify-content-center mt-5 gap-3">
+
+                        <button style="height:60px;width:100px;border-radius:40px" class="btn btn-outline-success" id="loadMoreBtn">Load More</button>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-xl-4"></div>
+                <div class="col-12 col-xl-8">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

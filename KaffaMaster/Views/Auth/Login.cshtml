@@ -1,0 +1,32 @@
+﻿@using KaffaMaster.ViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+@model LoginViewModel
+
+
+<main>
+    <section class="log-in dark-con">
+        <div class="container">
+            <h1 class="mb-3 langdata">Login</h1>
+            <form method="post" class="d-flex flex-column gap-3">
+                <label for="" class="langdata">Username or email address <span>*</span></label>
+                <input asp-for="UsernameOrEmail" id="log-in-input" type="text" >
+                <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+                <label for="" class="langdata">Password <span>*</span></label>
+                <input asp-for="Password" id="log-in-input" type="password">
+                <span asp-validation-for="Password" style="color:red"></span>
+                    <div asp-validation-summary="ModelOnly" class="text text-danger"></div>
+                <div class="d-flex align-items-center gap-3 flex-column flex-sm-row">
+                    <button id="log-in-btn" class="langdata">Log in</button>
+                    <a asp-action="register" asp-controller="user" class="langdata">Sign up</a>
+                    <div>
+                        <input asp-for="RememberMe" type="checkbox">
+                        <label for="" class="langdata">Remember me</label>
+                    </div>
+                </div>
+                <a asp-action="Forgot" asp-controller="auth" class="langdata">Lost your password?</a>
+            </form>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model Comment
+<main>
+    <section class="info dark-con">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h5 class="my-4 langdata">Location</h5>
+                        <p class="text-center langdata">29 Nicolas str, New York, 987597-50</p>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="fa-solid fa-phone"></i>
+                        <h5 class="my-4 langdata">Phones</h5>
+                        <a href="tel:0(800) 890-90-609">0(800) 890-90-609</a>
+                        <a href="tel:0(800) 890-90-620">0(800) 890-90-620</a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h5 class="my-4 langdata">Email</h5>
+                        <a href="mailto:sale@like-themes.com">sale@like-themes.com</a>
+                        <a href="mailto:tech@like-themes.com">tech@like-themes.com</a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="fa-regular fa-clock"></i>
+                        <h5 class="my-4 langdata">Working Hours</h5>
+                        <p class="langdata">Wednesday - Sunday</p>
+                        <p class="langdata">7:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="map dark-con">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194472.7685298024!2d49.690148428530215!3d40.394737008072056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBaku!5e0!3m2!1sen!2saz!4v1707816212024!5m2!1sen!2saz"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <section class="message dark-con">
+        <div class="d-flex justify-content-center">
+            <div>
+                <h1 class="text-center mb-3 langdata">Send Message</h1>
+                <form method="post" id="contact-form" class="d-flex flex-column gap-3">
+                  
+                    <div class="d-flex flex-column flex-lg-row gap-3">
+                        <input type="text" asp-for="Name" placeholder="Your name">
+                        <span asp-validation-for="Name"></span>
+                        <input type="email" asp-for="Email" placeholder="Your email">
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                    <textarea asp-for="Comments" placeholder="comment">
+                    </textarea><span asp-validation-for="Comments"></span>
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

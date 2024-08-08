@@ -1,0 +1,35 @@
+﻿@using KaffaMaster.ViewModel;
+
+@{
+	ViewData["Title"] = "Register";
+}
+@model AppUserViewModel
+
+<main>
+	<section class="log-in dark-con">
+		<div class="container">
+			<h1 class="mb-3 langdata">Sign up</h1>
+			<form method="post" class="d-flex flex-column gap-3">
+				<label class="langdata">Username <span>*</span></label>
+				<input asp-for="UserName" id="sign-up-input" type="text">
+				<span asp-validation-for="UserName" class="text-danger"></span>
+				<label for="" class="langdata">Email <span>*</span></label>
+				<input asp-for="Email" id="sign-up-input" type="email">
+				<span asp-validation-for="Email" class="text-danger"></span>
+				<label for="" class="langdata">Password <span>*</span></label>
+				<input asp-for="Password" id="sign-up-input" type="password">
+				<span asp-validation-for="Password" class="text-danger"></span>
+
+				<div class="d-flex align-items-center gap-3 flex-column flex-sm-row">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<button  type="submit" class="langdata">Sign up</button>
+
+					<div>
+						<input type="checkbox">
+						<label for="" class="langdata">Remember me</label>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</main>
