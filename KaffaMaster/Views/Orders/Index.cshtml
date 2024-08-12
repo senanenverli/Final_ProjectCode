@@ -2,14 +2,15 @@
 @{
     ViewData["Title"] = "Index";
 }
-@model Order
+
+@model BasketItem
 <main>
     <section class="cart-section dark-con">
         <div id="cart-container" class="container d-md-block d-none">
             <div id="alert">
-                <div>
+                @* <div>
                     <p class="dark-p langdata">Your cart is currently empty.</p>
-                </div>
+                </div> *@
 
             </div>
             <table id="table-cont" style="width: 100%;">
@@ -24,36 +25,39 @@
                 <tbody class="cart-item-container">
                     <table id="table-cont-mobile" style="width: 100%;">
                         <tbody class=" cart-item-container-mob">
-                            <tr>
-                                <th>
-                            <tr>
-                                <th>Product:</th>
-                                <td style="text-align: right;">@Model.ProductName</td>
-                            </tr>
-                            <tr>
-                                <th>Price:</th>
-                                <td style="text-align: right;">@Model.Price</td>
-                            </tr>
-                            <tr>
-                                <th>Quantity:</th>
-                                <td style="text-align: right;"><input id="price" type="text" asp-for="Quantity"></td>
-                            </tr>
-                            <tr class="last-tr">
-                                <th>Subtotal:</th>
-                                <td style="text-align: right;" class="subtotal">$0.00</td>
-                            </tr>
+                            @foreach(var product in @Model.Products)
+                            {
+                                <tr>
+                                    <th>
+                                <tr>
+                                    <th>Product:</th>
+                                    <td style="text-align: right;">@product.Title</td>
+                                </tr>
+                                <tr>
+                                    <th>Price:</th>
+                                    <td style="text-align: right;">@product.Price</td>
+                                </tr>
+                                <tr>
+                                    <th>Quantity:</th>
+                                    <td style="text-align: right;">1</td>
+                                </tr>
+                                <tr class="last-tr">
+                                    <th>Subtotal:</th>
+                                    <td style="text-align: right;" class="subtotal">@product.Price</td>
+                                </tr>
                             </th>
-                        <td style="text-align: right;">
-                            <a href="#!" data-id=${cart.product_id} class="remove-btn remove delete">x</a>
-                        </td>
-                        </tr>
+                            <td style="text-align: right; background-color:white;width:50px">
+                                <a asp-action="Delete" asp-controller="Orders" asp-route-id="@product.Id" class="remove-btn remove delete">remove</a>
+                            </td>
+                                </tr>
+                            }
 
                 </tbody>
             </table>
             </tbody>
             </table>
             <div id="button-shop">
-                <button class="mt-4"><a href="../pages/products.html" class="langdata">Return to shop</a></button>
+                <button class="mt-4"><a asp-action="index" asp-controller="Shop" class="langdata">Return to shop</a></button>
             </div>
             <div sty class="mt-4 d-flex justify-content-end gap-3" id="checkout">
             </div>
@@ -71,7 +75,7 @@
         </div>
     </section>
 </main>
-@section Scripts{
+@* @section Scripts{ *@@* 
     <script>
         // Function to update subtotal based on quantity
         function updateSubtotal() {
@@ -102,4 +106,4 @@
         // Initial update
         updateSubtotal();
     </script>
-}
+} *@

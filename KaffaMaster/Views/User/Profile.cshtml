@@ -106,7 +106,7 @@
                              class="d-flex flex-column align-items-center justify-content-center">
                             <div class="img-container" style="width: 30%" >
                                 
-                                <input type="file" asp-for="PosterImage" hidden><img src="~/assets/images/logo.png" /></input>
+                                <input type="file"  hidden><img src="~/assets/images/logo.png" /></input>
                             </div>
                             <div>
                                 <h2 class="m-0">@User.Identity.Name</h2>
@@ -120,13 +120,13 @@
                                 <a class="btn p-0" asp-action="ForgotPassword" asp-controller="auth"><i class="fa-solid fa-key"></i> Change Password</a>
                             </button>
                             <button id="btn" style="padding: 20px;" class="text-start">
-                                <a class="btn p-0" asp-action="AddProductToBasket" asp-controller="Shop"><i class="fa-solid fa-ticket"></i> My Orders</a>
+                                <a class="btn p-0" asp-action="Index" asp-controller="orders"><i class="fa-solid fa-ticket"></i> My Orders</a>
                             </button>
                             <button id="btn" style="padding: 20px;" class="text-start">
                                 <a><i class="fa-regular fa-credit-card"></i> Payment Methods</a>
                             </button>
                             <button id="btn" style="padding: 20px;" class="text-start">
-                                <a><i class="fa-solid fa-circle-info"></i> Need Help</a>
+                                <a class="btn p-0" asp-action="Index" asp-controller="FAQ"><i class="fa-solid fa-circle-info" ></i> Need Help</a>
                             </button>
                             <button id="btn" style="padding: 20px;" class="log-out text-start">
                                 <a class="btn p-0" asp-action="logout" asp-controller="auth"><i class="fa-solid fa-door-open"></i> Log out</a>
@@ -145,14 +145,14 @@
                                         <h6>User Name</h6>
                                         <div>
 
-                                            <input  style="width: 100%; padding: 15px 10px;" asp-for="UserName">
+                                            <input  style="width: 100%; padding: 15px 10px ; border-radius:50px" asp-for="UserName">
 
                                         </div>
                                     </div>
                                 <span asp-validation-for="UserName" class="text-danger"></span>
                                     <div>
                                         <h6>Your Email</h6>
-                                        <input style="width: 100%; padding: 15px 10px;" type="text" asp-for="Email" readonly>
+                                    <input style="width: 100%; padding: 15px 10px;border-radius:50px" type="text" asp-for="Email" readonly>
                                     </div>
 
                                 <span asp-validation-for="Email" class="text-danger"></span>
@@ -161,7 +161,7 @@
                                     <h6>Current Password</h6>
                                     <div>
 
-                                        <input style="width: 100%; padding: 15px 10px;" asp-for="CurrentPassword" placeholder="CurrentPassword">
+                                        <input style="width: 100%; padding: 15px 10px;border-radius:50px" asp-for="CurrentPassword" placeholder="CurrentPassword">
 
                                     </div>
                                 </div>
@@ -172,15 +172,15 @@
                                     <h6>New Password</h6>
                                     <div>
 
-                                        <input style="width: 100%; padding: 15px 10px;" asp-for="NewPassword" placeholder="NewPassword">
+                                        <input style="width: 100%; padding: 15px 10px;border-radius:50px" asp-for="NewPassword" placeholder="NewPassword">
 
                                     </div>
                                 </div>
-                                <input value="@TempData["SuccessMessage"]" id="success-message" style="border:none" readonly/>
+                                <input value="@TempData["SuccessMessage"]" id="success-message" style="border:none; border-radius:50px;width:250px"  readonly/>
                                 <span asp-validation-for="NewPassword" class="text-danger"></span>
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <div style="background-color:green; height:100%;width:10% ; margin:10px" class="langdata">
-                                    <button style="color:white"><b>Save</b></button>
+                                <div style="background-color:#4E8B55; height:100%;width:10% ; margin:10px;border-radius:50px" class="langdata">
+                                    <button style="color:white;"><b>Save</b></button>
                                     </div>
 
                                 </div>

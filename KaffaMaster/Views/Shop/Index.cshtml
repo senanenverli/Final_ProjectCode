@@ -98,27 +98,27 @@
                                 <div class="background"></div>
                                 <img src="~/assets/images/@item.PosterImage" alt="">
                                 <div class="d-flex flex-column row-gap-2">
-                                    <a href="details.html?id=${item.id}" target="_blank">Read More</a>
+                                    @* <a href="details.html?id=${item.id}" target="_blank">Read More</a> *@
                                         <a id="cart-add-btn" asp-action="AddProductToBasket" asp-controller="Shop" asp-route-productId="@item.Id">Add to Cart</a>
                                 </div>
                             </div>
-                                    <div class="icons d-flex justify-content-center gap-1">
-                            @for (int i = 0; i < item.Rating; i++)
-                                {
-                                        <i class="fa-solid fa-star"></i>
-                             
-                                }
-                                    </div>
                             <div class="d-flex align-items-center flex-column">
                                 <h5>@item.Title</h5>
                                 <h5>@item.Price $<h5>
                             </div>
+                                    @for (int i = 0; i < item.Rating; i++)
+                                    {
+                                        <div class="icons d-flex justify-content-center gap-1">
+                                            <i class="fa-solid fa-star">@item.Rating</i>
+                             
+                                        </div>
+                                    }
                         </div>
                         }
 
                     <div class="products-btn d-flex justify-content-center mt-5 gap-3">
 
-                        <button style="height:60px;width:100px;border-radius:40px" class="btn btn-outline-success" id="loadMoreBtn">Load More</button>
+                        <button style="height:60px;width:200px;border-radius:40px" class="btn btn-outline-success" id="loadMoreBtn">Load More</button>
 
                     </div>
                     </div>

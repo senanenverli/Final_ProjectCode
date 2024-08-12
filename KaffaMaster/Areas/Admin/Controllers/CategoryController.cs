@@ -157,7 +157,7 @@ public class CategoryController : Controller
                 return View();
             }
 
-            string basePath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "categories");
+            string basePath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images");
             string path = Path.Combine(basePath, updateCategory.Image);
 
             if (System.IO.File.Exists(path))

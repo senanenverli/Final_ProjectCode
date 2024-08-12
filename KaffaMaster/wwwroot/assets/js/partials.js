@@ -120,64 +120,64 @@ switch (window.location.pathname) {
 //        </section >
 //    `
 
-footer.innerHTML = `
-    <div class="background"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-6 col-xl-4">
-                    <div class="img-container">
-                        <img src="../assets/images/kaffa_logo_light_2x.png" alt="">
-                    </div>
-                    <p class="my-5">Etiam consequat sem ullamcorper, euismod
-                        metus sit amet, tristique justo. Vestibulum
-                        mattis, nisi ut.</p>
-                    <div class="icons d-flex gap-5">
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 col-xl-4 mt-5 mt-lg-0   ">
-                    <h2 class="langdata">Contact Info</h2>
-                    <div class="d-flex my-4 gap-3">
-                        <div><i class="fa-solid fa-location-dot"></i></div>
-                        <div>
-                            <h6 class="langdata">Our location</h6>
-                            <p>Rio de Janeiro, RJ Brazil, 04103 Route</p>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-3">
-                        <div><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <h6 class="langdata">Phones:</h6>
-                            <div>
-                                <a href="tel:+49078-039-23-11">
-                                    +49078-039-23-11
-                                </a>
-                            </div>
-                            <div>
-                                <a href="tel:+49078-028-55-60">
-                                    +49078-028-55-60
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 d-none d-xl-block col-xl-4">
-                    <h2 class="langdata">Subscribe</h2>
-                    <form class="mt-4" action="">
-                        <div>
-                            <input placeholder="Your email ..." class="email" type="email">
-                                <button class="langdata">Subscribe</button>
-                        </div>
-                        <div class="mt-4">
-                            <input type="checkbox">
-                                <label for="" class="langdata">I have read and agree to the terms & conditions</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>`
+//footer.innerHTML = `
+//    <div class="background"></div>
+//        <div class="container">
+//            <div class="row">
+//                <div class="col-12 col-lg-6 col-xl-4">
+//                    <div class="img-container">
+//                        <img src="../assets/images/kaffa_logo_light_2x.png" alt="">
+//                    </div>
+//                    <p class="my-5">Etiam consequat sem ullamcorper, euismod
+//                        metus sit amet, tristique justo. Vestibulum
+//                        mattis, nisi ut.</p>
+//                    <div class="icons d-flex gap-5">
+//                        <i class="fa-brands fa-twitter"></i>
+//                        <i class="fa-brands fa-facebook-f"></i>
+//                        <i class="fa-brands fa-instagram"></i>
+//                        <i class="fa-brands fa-youtube"></i>
+//                    </div>
+//                </div>
+//                <div class="col-12 col-lg-6 col-xl-4 mt-5 mt-lg-0   ">
+//                    <h2 class="langdata">Contact Info</h2>
+//                    <div class="d-flex my-4 gap-3">
+//                        <div><i class="fa-solid fa-location-dot"></i></div>
+//                        <div>
+//                            <h6 class="langdata">Our location</h6>
+//                            <p>Rio de Janeiro, RJ Brazil, 04103 Route</p>
+//                        </div>
+//                    </div>
+//                    <div class="d-flex gap-3">
+//                        <div><i class="fa-solid fa-phone"></i></div>
+//                        <div>
+//                            <h6 class="langdata">Phones:</h6>
+//                            <div>
+//                                <a href="tel:+49078-039-23-11">
+//                                    +49078-039-23-11
+//                                </a>
+//                            </div>
+//                            <div>
+//                                <a href="tel:+49078-028-55-60">
+//                                    +49078-028-55-60
+//                                </a>
+//                            </div>
+//                        </div>
+//                    </div>
+//                </div>
+//                <div class="col-12 d-none d-xl-block col-xl-4">
+//                    <h2 class="langdata">Subscribe</h2>
+//                    <form class="mt-4" action="">
+//                        <div>
+//                            <input placeholder="Your email ..." class="email" type="email">
+//                                <button class="langdata">Subscribe</button>
+//                        </div>
+//                        <div class="mt-4">
+//                            <input type="checkbox">
+//                                <label for="" class="langdata">I have read and agree to the terms & conditions</label>
+//                        </div>
+//                    </form>
+//                </div>
+//            </div>
+//        </div>`
 
 

@@ -22,6 +22,21 @@ namespace KaffaMaster.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("BasketItemProduct", b =>
+                {
+                    b.Property<int>("BasketItemsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BasketItemsId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("BasketItemProduct");
+                });
+
             modelBuilder.Entity("KaffaMaster.Models.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -42,6 +57,9 @@ namespace KaffaMaster.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsSubscribed")
                         .HasColumnType("bit");
 
                     b.Property<bool>("LockoutEnabled")
@@ -108,14 +126,9 @@ namespace KaffaMaster.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("BasketItems");
                 });
@@ -262,23 +275,6 @@ namespace KaffaMaster.Migrations
                     b.HasIndex("BlogId");
 
                     b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("KaffaMaster.Models.EmailSubscription", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("emailSubscriptions");
                 });
 
             modelBuilder.Entity("KaffaMaster.Models.Order", b =>
@@ -508,6 +504,21 @@ namespace KaffaMaster.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("BasketItemProduct", b =>
+                {
+                    b.HasOne("KaffaMaster.Models.BasketItem", null)
+                        .WithMany()
+                        .HasForeignKey("BasketItemsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KaffaMaster.Models.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("KaffaMaster.Models.BasketItem", b =>
                 {
                     b.HasOne("KaffaMaster.Models.AppUser", "AppUser")
@@ -516,15 +527,7 @@ namespace KaffaMaster.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("KaffaMaster.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("AppUser");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("KaffaMaster.Models.Comment", b =>

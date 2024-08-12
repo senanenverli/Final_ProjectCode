@@ -1,4 +1,4 @@
-﻿// Controllers/OrdersController.cs
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,74 +19,34 @@ public class OrdersController : Controller
     // GET: Orders
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Orders.ToListAsync());
+        BasketItem basketItem = await _context.BasketItems.Include(n => n.Products).FirstOrDefaultAsync();
+        return View(basketItem);
     }
 
-    // GET: Orders/Details/5
-    public async Task<IActionResult> Details(int id)
-    {
-        var order = await _context.Orders.FindAsync(id);
-        if (order == null)
-        {
-            return NotFound();
-        }
-        return View(order);
-    }
-
-    // GET: Orders/Edit/5
-    public async Task<IActionResult> Edit(int id)
-    {
-        var order = await _context.Orders.FindAsync(id);
-        if (order == null)
-        {
-            return NotFound();
-        }
-        return View(order);
-    }
-
-    // POST: Orders/Edit/5
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,ProductName,Quantity,Price")] Order order)
-    {
-        if (id != order.Id)
-        {
-            return NotFound();
-        }
-
-        if (ModelState.IsValid)
-        {
-            try
-            {
-                _context.Update(order);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!OrderExists(order.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return RedirectToAction(nameof(Index));
-        }
-        return View(order);
-    }
-
-    // GET: Orders/Delete/5
+   
+    
     public async Task<IActionResult> Delete(int id)
     {
-        var order = await _context.Orders
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (order == null)
+
+        var basketItem = await _context.BasketItems.Include(n => n.AppUser).Where(n => n.AppUser.UserName == User.Identity.Name).Include(b => b.Products)
+            .FirstOrDefaultAsync();
+        if (basketItem == null)
         {
             return NotFound();
         }
-        return View(order);
+
+        Product product = await _context.Products.Where(n => n.Id == id).FirstOrDefaultAsync();
+
+        if(product == null)
+        {
+            return NotFound();
+        }
+
+        basketItem.Products.Remove(product);
+        _context.BasketItems.Update(basketItem);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
     }
 
     // POST: Orders/Delete/5
@@ -94,8 +54,8 @@ public class OrdersController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        var order = await _context.Orders.FindAsync(id);
-        _context.Orders.Remove(order);
+        var basketItem = await _context.BasketItems.FindAsync(id);
+        _context.BasketItems.Remove(basketItem);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }

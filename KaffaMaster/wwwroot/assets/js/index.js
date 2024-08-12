@@ -684,250 +684,250 @@ if (document.querySelector('.loading')) {
 //    language(dataLang)
 //}
 
-function language(dataArray) {
-    if (localStorage.getItem("lang") === null) {
-        localStorage.setItem("lang", "eng")
-    } else {
-        langBtn.addEventListener("click", () => {
-            if (langBtn.innerHTML == "<p>AZ</p>") {
-                langBtn.innerHTML = `<p>EN</p>`
-                langData.forEach((data, index) => {
-                    data.innerHTML = dataArray.az[index]
-                })
-                localStorage.setItem("lang", "az")
-            } else {
-                langBtn.innerHTML = `<p>AZ</p>`
-                langData.forEach((data, index) => {
-                    data.innerHTML = dataArray.eng[index]
-                })
-                localStorage.setItem("lang", "eng")
-            }
-        })
-    }
+//function language(dataArray) {
+//    if (localStorage.getItem("lang") === null) {
+//        localStorage.setItem("lang", "eng")
+//    } else {
+//        langBtn.addEventListener("click", () => {
+//            if (langBtn.innerHTML == "<p>AZ</p>") {
+//                langBtn.innerHTML = `<p>EN</p>`
+//                langData.forEach((data, index) => {
+//                    data.innerHTML = dataArray.az[index]
+//                })
+//                localStorage.setItem("lang", "az")
+//            } else {
+//                langBtn.innerHTML = `<p>AZ</p>`
+//                langData.forEach((data, index) => {
+//                    data.innerHTML = dataArray.eng[index]
+//                })
+//                localStorage.setItem("lang", "eng")
+//            }
+//        })
+//    }
 
-    if (localStorage.getItem("lang") === "az") {
-        langBtn.innerHTML = `<p>EN</p>`
-        langData.forEach((data, index) => {
-            data.innerHTML = dataArray.az[index]
-        })
-    } else {
-        langBtn.innerHTML = `<p>AZ</p>`
-        langData.forEach((data, index) => {
-            data.innerHTML = dataArray.eng[index]
-        })
-    }
-}
+//    if (localStorage.getItem("lang") === "az") {
+//        langBtn.innerHTML = `<p>EN</p>`
+//        langData.forEach((data, index) => {
+//            data.innerHTML = dataArray.az[index]
+//        })
+//    } else {
+//        langBtn.innerHTML = `<p>AZ</p>`
+//        langData.forEach((data, index) => {
+//            data.innerHTML = dataArray.eng[index]
+//        })
+//    }
+//}
 
 // ---------- addToCart -------------
-let cart = []
+//let cart = []
 
-const getItemID = (cartBtn) => {
-    cartBtn.forEach(btn => (
-        btn.addEventListener("click", () => {
-            let product_id = btn.getAttribute("data-id")
-            addToCart(product_id)
-        })
-    ))
-}
+//const getItemID = (cartBtn) => {
+//    cartBtn.forEach(btn => (
+//        btn.addEventListener("click", () => {
+//            let product_id = btn.getAttribute("data-id")
+//            addToCart(product_id)
+//        })
+//    ))
+//}
 
-const getBtnID = (btnID) => {
-    btnID.forEach(btn => {
-        btn.addEventListener("click", () => {
-            let product_id = btn.getAttribute("data-id")
-            deleteFromCard(product_id)
-        })
-    })
-}
+//const getBtnID = (btnID) => {
+//    btnID.forEach(btn => {
+//        btn.addEventListener("click", () => {
+//            let product_id = btn.getAttribute("data-id")
+//            deleteFromCard(product_id)
+//        })
+//    })
+//}
 
-const deleteFromCard = (product_id) => {
-    let positionOfItemCart = cart.findIndex((value) => value.product_id == product_id)
-    if (cart[positionOfItemCart].quantity === 1) {
-        cart.pop({
-            product_id: product_id,
-            quantity: 1
-        })
-    } else {
-        cart[positionOfItemCart].quantity -= 1;
-    }
+//const deleteFromCard = (product_id) => {
+//    let positionOfItemCart = cart.findIndex((value) => value.product_id == product_id)
+//    if (cart[positionOfItemCart].quantity === 1) {
+//        cart.pop({
+//            product_id: product_id,
+//            quantity: 1
+//        })
+//    } else {
+//        cart[positionOfItemCart].quantity -= 1;
+//    }
 
-    localStorage.setItem("cart", JSON.stringify(cart))
-    getCart(cart)
-    window.location.reload()
+//    localStorage.setItem("cart", JSON.stringify(cart))
+//    getCart(cart)
+//    window.location.reload()
 
-}
+//}
 
-const addToCart = (product_id) => {
-    if (localStorage.getItem("logged-in")===null) {
-        alert("please log in")
-    } else {
-        let positionOfItemCart = cart.findIndex((value) => value.product_id == product_id)
-        if (cart <= 0) {
-            cart = [{
-                product_id: product_id,
-                quantity: 1
-            }]
-        } else if (positionOfItemCart < 0) {
-            cart.push({
-                product_id: product_id,
-                quantity: 1
-            })
-        } else {
-            cart[positionOfItemCart].quantity += 1;
-        }
+//const addToCart = (product_id) => {
+//    if (localStorage.getItem("logged-in")===null) {
+//        alert("please log in")
+//    } else {
+//        let positionOfItemCart = cart.findIndex((value) => value.product_id == product_id)
+//        if (cart <= 0) {
+//            cart = [{
+//                product_id: product_id,
+//                quantity: 1
+//            }]
+//        } else if (positionOfItemCart < 0) {
+//            cart.push({
+//                product_id: product_id,
+//                quantity: 1
+//            })
+//        } else {
+//            cart[positionOfItemCart].quantity += 1;
+//        }
 
-        localStorage.setItem("cart", JSON.stringify(cart))
-        getCart(cart)
-    }
-}
+//        localStorage.setItem("cart", JSON.stringify(cart))
+//        getCart(cart)
+//    }
+//}
 
-if (localStorage.getItem("cart") === null) {
-    cart = []
-} else {
-    cart = JSON.parse(localStorage.getItem("cart"))
-}
+//if (localStorage.getItem("cart") === null) {
+//    cart = []
+//} else {
+//    cart = JSON.parse(localStorage.getItem("cart"))
+//}
 
-const alertCart = document.querySelectorAll("#alert")
-const table = document.querySelector("#table-cont")
-const tableMobile = document.querySelector("#table-cont-mobile")
-const btnShop = document.querySelectorAll("#button-shop")
-const checkout = document.querySelectorAll("#checkout")
+//const alertCart = document.querySelectorAll("#alert")
+//const table = document.querySelector("#table-cont")
+//const tableMobile = document.querySelector("#table-cont-mobile")
+//const btnShop = document.querySelectorAll("#button-shop")
+//const checkout = document.querySelectorAll("#checkout")
 
-if (alertCart && table && btnShop) {
-    if (localStorage.getItem("cart") === null || JSON.parse(localStorage.getItem("cart")).length === 0) {
-        alertCart.forEach(cont => {
-            cont.innerHTML = `<div>
-            <p class="dark-p langdata">Your cart is currently empty.</p>
-        </div>`
-        })
-        table.innerHTML = ``
-        tableMobile.innerHTML = ''
-        btnShop.forEach(btn => {
-            btn.innerHTML = `<button class="mt-4"><a href="../pages/products.html" class="langdata">Return to shop</a></button>`
-        })
-    } else {
-        alertCart.forEach(cont => {
-            cont.innerHTML = ``
-        })
-        table.innerHTML = `<thead>
-        <tr>
-            <td colspan="3">PRODUCTS</td>
-            <td>PRICE</td>
-            <td>QUANTITY</td>
-            <td>SUBTOTAL</td>
-        </tr>
-        </thead>
-            <tbody class="cart-item-container">
-        </tbody>`
-        tableMobile.innerHTML = `<tbody class="cart-item-container-mob"></tbody>`
-        btnShop.forEach(btn => {
-            btn.innerHTML = ``
-        })
-        checkout.forEach(btn => {
-            btn.innerHTML = `
-            <a class='clear-btn' href="#">Clear</a>
-            <a href="checkout.html">Proceed to checkout</a>
-            `
-        })
+//if (alertCart && table && btnShop) {
+//    if (localStorage.getItem("cart") === null || JSON.parse(localStorage.getItem("cart")).length === 0) {
+//        alertCart.forEach(cont => {
+//            cont.innerHTML = `<div>
+//            <p class="dark-p langdata">Your cart is currently empty.</p>
+//        </div>`
+//        })
+//        table.innerHTML = ``
+//        tableMobile.innerHTML = ''
+//        btnShop.forEach(btn => {
+//            btn.innerHTML = `<button class="mt-4"><a href="../pages/products.html" class="langdata">Return to shop</a></button>`
+//        })
+//    } else {
+//        alertCart.forEach(cont => {
+//            cont.innerHTML = ``
+//        })
+//        table.innerHTML = `<thead>
+//        <tr>
+//            <td colspan="3">PRODUCTS</td>
+//            <td>PRICE</td>
+//            <td>QUANTITY</td>
+//            <td>SUBTOTAL</td>
+//        </tr>
+//        </thead>
+//            <tbody class="cart-item-container">
+//        </tbody>`
+//        tableMobile.innerHTML = `<tbody class="cart-item-container-mob"></tbody>`
+//        btnShop.forEach(btn => {
+//            btn.innerHTML = ``
+//        })
+//        checkout.forEach(btn => {
+//            btn.innerHTML = `
+//            <a class='clear-btn' href="#">Clear</a>
+//            <a href="checkout.html">Proceed to checkout</a>
+//            `
+//        })
 
-        const clearBtn = document.querySelectorAll('.clear-btn')
+//        const clearBtn = document.querySelectorAll('.clear-btn')
 
-        clearBtn.forEach(btn => {
-            btn.addEventListener("click", () => {
-                localStorage.removeItem("cart")
-                window.location.reload()
-            })
-        })
-    }
+//        clearBtn.forEach(btn => {
+//            btn.addEventListener("click", () => {
+//                localStorage.removeItem("cart")
+//                window.location.reload()
+//            })
+//        })
+//    }
 
-}
+//}
 
-const cartCon = document.querySelector(".cart-item-container")
-const cartConMobile = document.querySelector(".cart-item-container-mob")
-if (cartCon) {
-    fetch('../assets/api/data/kaffa-products.json')
-        .then(res => res.json())
-        .then(data => {
-            let newCart = ``
-            let newCartMob = ``
-            JSON.parse(localStorage.getItem("cart")).map(cart => {
-                data.forEach(item => {
-                    if (cart.product_id == item.id) {
-                        newCart += `
-                        <tr>
-                            <td style="width: 3em;">
-                                <a href="#!" class="remove-btn remove delete" data-id=${cart.product_id} style="width: 3em;">x</a>
-                            </td>
-                            <td style="width: 4em;">
-                                <img style="width: 100%;" src="${item.img}" alt="">
-                            </td>
-                            <td>${item.name}</td>
-                            <td>$${item.price}</td>
-                            <td><input id="price" type="text" value="${cart.quantity}" readonly></td>
-                            <td>$${Math.round((Number(item.price) * cart.quantity) * 100) / 100}</td>
-                        </tr>`
+//const cartCon = document.querySelector(".cart-item-container")
+//const cartConMobile = document.querySelector(".cart-item-container-mob")
+//if (cartCon) {
+//    fetch('../assets/api/data/kaffa-products.json')
+//        .then(res => res.json())
+//        .then(data => {
+//            let newCart = ``
+//            let newCartMob = ``
+//            JSON.parse(localStorage.getItem("cart")).map(cart => {
+//                data.forEach(item => {
+//                    if (cart.product_id == item.id) {
+//                        newCart += `
+//                        <tr>
+//                            <td style="width: 3em;">
+//                                <a href="#!" class="remove-btn remove delete" data-id=${cart.product_id} style="width: 3em;">x</a>
+//                            </td>
+//                            <td style="width: 4em;">
+//                                <img style="width: 100%;" src="${item.img}" alt="">
+//                            </td>
+//                            <td>${item.name}</td>
+//                            <td>$${item.price}</td>
+//                            <td><input id="price" type="text" value="${cart.quantity}" readonly></td>
+//                            <td>$${Math.round((Number(item.price) * cart.quantity) * 100) / 100}</td>
+//                        </tr>`
 
-                    }
-                })
-            })
-            JSON.parse(localStorage.getItem("cart")).map(cart => {
-                data.forEach(item => {
-                    if (cart.product_id == item.id) {
-                        newCartMob += `
-                    <tr>
-                    <th></th>
-                    <td style="text-align: right;">
-                        <a href="#!" data-id=${cart.product_id} class="remove-btn remove delete">x</a>
-                    </td>
-                    </tr>
-                    <tr>
-                        <th>Product:</th>
-                        <td style="text-align: right;">${item.name}</td>
-                    </tr>
-                    <tr>
-                        <th>Price:</th>
-                        <td style="text-align: right;">$${item.price}</td>
-                    </tr>
-                    <tr>
-                        <th>Quantity:</th>
-                        <td style="text-align: right;"><input id="price" type="text" value="${cart.quantity}"></td>
-                    </tr>
-                    <tr class="last-tr">
-                        <th>Subtotal:</th>
-                        <td style="text-align: right;">$${Math.round((Number(item.price) * cart.quantity) * 100) / 100}</td>
-                    </tr>`
-                    }
-                })
-            })
-            cartCon.innerHTML = newCart
-            cartConMobile.innerHTML = newCartMob
-            const btnID = document.querySelectorAll(".remove-btn")
-            getBtnID(btnID)
-        })
+//                    }
+//                })
+//            })
+//            JSON.parse(localStorage.getItem("cart")).map(cart => {
+//                data.forEach(item => {
+//                    if (cart.product_id == item.id) {
+//                        newCartMob += `
+//                    <tr>
+//                    <th></th>
+//                    <td style="text-align: right;">
+//                        <a href="#!" data-id=${cart.product_id} class="remove-btn remove delete">x</a>
+//                    </td>
+//                    </tr>
+//                    <tr>
+//                        <th>Product:</th>
+//                        <td style="text-align: right;">${item.name}</td>
+//                    </tr>
+//                    <tr>
+//                        <th>Price:</th>
+//                        <td style="text-align: right;">$${item.price}</td>
+//                    </tr>
+//                    <tr>
+//                        <th>Quantity:</th>
+//                        <td style="text-align: right;"><input id="price" type="text" value="${cart.quantity}"></td>
+//                    </tr>
+//                    <tr class="last-tr">
+//                        <th>Subtotal:</th>
+//                        <td style="text-align: right;">$${Math.round((Number(item.price) * cart.quantity) * 100) / 100}</td>
+//                    </tr>`
+//                    }
+//                })
+//            })
+//            cartCon.innerHTML = newCart
+//            cartConMobile.innerHTML = newCartMob
+//            const btnID = document.querySelectorAll(".remove-btn")
+//            getBtnID(btnID)
+//        })
 
-        .catch(err => {
-            console.log('Error', err)
-        })
-}
+//        .catch(err => {
+//            console.log('Error', err)
+//        })
+//}
 
 
-const cartAmount = document.querySelector("#cart-amount")
-const cartAmount2 = document.querySelector("#cart-amount2")
-const getCart = (cart) => {
-    let cartItemCount = 0
-    cart.map(cart => {
-        cartItemCount += cart.quantity
-    })
-    cartAmount.innerHTML = cartItemCount
-    cartAmount2.innerHTML = cartItemCount
-    localStorage.setItem("amount", cartItemCount)
-}
-if (localStorage.getItem("cart") === null) {
-    cartAmount.innerHTML = 0
-    cartAmount2.innerHTML = 0
-} else {
-    cartAmount.innerHTML = localStorage.getItem("amount")
-    cartAmount2.innerHTML = localStorage.getItem("amount")
-}
+//const cartAmount = document.querySelector("#cart-amount")
+//const cartAmount2 = document.querySelector("#cart-amount2")
+//const getCart = (cart) => {
+//    let cartItemCount = 0
+//    cart.map(cart => {
+//        cartItemCount += cart.quantity
+//    })
+//    cartAmount.innerHTML = cartItemCount
+//    cartAmount2.innerHTML = cartItemCount
+//    localStorage.setItem("amount", cartItemCount)
+//}
+//if (localStorage.getItem("cart") === null) {
+//    cartAmount.innerHTML = 0
+//    cartAmount2.innerHTML = 0
+//} else {
+//    cartAmount.innerHTML = localStorage.getItem("amount")
+//    cartAmount2.innerHTML = localStorage.getItem("amount")
+//}
 
 
 // ---------- checkout - accordion -------------

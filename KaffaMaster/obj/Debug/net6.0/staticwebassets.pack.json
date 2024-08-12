@@ -393,24 +393,12 @@
       "PackagePath": "staticwebassets\\assets\\images\\04_coffee.jpg"
     },
     {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\07e3a545-d2ea-427b-a3ff-8b2243362c21-photo1711307501 (5).jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\07e3a545-d2ea-427b-a3ff-8b2243362c21-photo1711307501 (5).jpeg"
-    },
-    {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\0f3fcf83-3c24-44e7-859e-16f939009a7c-photo1711307501 (3).jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\0f3fcf83-3c24-44e7-859e-16f939009a7c-photo1711307501 (3).jpeg"
-    },
-    {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\150dcfd2-5450-48ed-bca5-2de775cc1097-photo1711307501.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\150dcfd2-5450-48ed-bca5-2de775cc1097-photo1711307501.jpeg"
     },
     {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\2c4e7557-81ab-4f9e-8c96-473b7b46f5cd-photo1711509081 (1).jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\2c4e7557-81ab-4f9e-8c96-473b7b46f5cd-photo1711509081 (1).jpeg"
-    },
-    {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\48128ca0-48eb-4423-ae99-603987b75d5b-photo1711509081 (2).jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\48128ca0-48eb-4423-ae99-603987b75d5b-photo1711509081 (2).jpeg"
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\250f737f-ea4c-4de2-92b8-524a5cb1757e-product-new-05.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\250f737f-ea4c-4de2-92b8-524a5cb1757e-product-new-05.jpg"
     },
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\4a8f399d-d2aa-4db9-a01c-ce7c8b659fd5-photo1711307501.jpeg",
@@ -421,12 +409,24 @@
       "PackagePath": "staticwebassets\\assets\\images\\4a9a866e-6522-4fbd-8469-cb62949e42a7-photo1711307501.jpeg"
     },
     {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\4b76a9fd-cb7a-4e2e-ac35-4f7383ed7353-photo1711307831 (1).jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\4b76a9fd-cb7a-4e2e-ac35-4f7383ed7353-photo1711307831 (1).jpeg"
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\4ce623fc-a3d9-42b2-8bcf-6feee07170e2-04_coffee.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\4ce623fc-a3d9-42b2-8bcf-6feee07170e2-04_coffee.jpg"
+    },
+    {
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\535c3c77-911c-44fa-bd40-807004099aa8-product-new-07.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\535c3c77-911c-44fa-bd40-807004099aa8-product-new-07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\59e543ce-742a-4804-a5c7-3208caeba694-product-black-03.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\59e543ce-742a-4804-a5c7-3208caeba694-product-black-03.jpg"
     },
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\6707de40-7666-4f0b-8047-c39b9b77480c-download.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\6707de40-7666-4f0b-8047-c39b9b77480c-download.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\6a192b4c-f1cd-4e3b-8a8f-ab85c8820e75-01_coffee.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\6a192b4c-f1cd-4e3b-8a8f-ab85c8820e75-01_coffee.jpg"
     },
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\6a688e9d-55df-43c5-9eba-f232978612d0-download.jpeg",
@@ -441,20 +441,20 @@
       "PackagePath": "staticwebassets\\assets\\images\\7c112551-74fa-40e8-8b65-4b95b509f8c0-photo1717327420.jpeg"
     },
     {
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\7cd42792-6c2a-4476-bad3-855fb8ad9518-02_coffee.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\7cd42792-6c2a-4476-bad3-855fb8ad9518-02_coffee.jpg"
+    },
+    {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\88775e54-f47a-4946-a680-d296aa03350b-download.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\88775e54-f47a-4946-a680-d296aa03350b-download.jpeg"
     },
     {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\98ab4b78-40ae-462a-a4bd-3b47be06ff7c-download.jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\98ab4b78-40ae-462a-a4bd-3b47be06ff7c-download.jpeg"
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\94914aaf-5e1f-40dd-860f-4316d7c91cd4-01_coffee.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\94914aaf-5e1f-40dd-860f-4316d7c91cd4-01_coffee.jpg"
     },
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\9b7c9f2a-1aae-476c-89a1-a2d4f9e974b3-photo1711307501.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\9b7c9f2a-1aae-476c-89a1-a2d4f9e974b3-photo1711307501.jpeg"
-    },
-    {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\9e567467-3314-450b-84d6-261d34560a72-photo1711509553.jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\9e567467-3314-450b-84d6-261d34560a72-photo1711509553.jpeg"
     },
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\CUP_collage.png",
@@ -467,10 +467,6 @@
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\a32419de-cd4b-42b4-a399-0b9562db0d85-photo1717327420 (1).jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\a32419de-cd4b-42b4-a399-0b9562db0d85-photo1717327420 (1).jpeg"
-    },
-    {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\a7d28010-bed3-493a-87c5-e3a08c0fb06b-download.jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\a7d28010-bed3-493a-87c5-e3a08c0fb06b-download.jpeg"
     },
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\a94f15ae-16bd-4637-86e5-a1a09da33b88-photo1717329385 (1).jpeg",
@@ -489,10 +485,6 @@
       "PackagePath": "staticwebassets\\assets\\images\\b3faf5ba-9ca6-4d42-bde8-859e9dc9a4b3-download.jpeg"
     },
     {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\bee7259a-3404-4a5c-a858-66758f435e4e-photo1711510962 (2).jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\bee7259a-3404-4a5c-a858-66758f435e4e-photo1711510962 (2).jpeg"
-    },
-    {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\bfb9715f-ba08-4aa3-85c2-4de10fd2d0f2-download.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\bfb9715f-ba08-4aa3-85c2-4de10fd2d0f2-download.jpeg"
     },
@@ -507,10 +499,6 @@
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\branch-bg.png",
       "PackagePath": "staticwebassets\\assets\\images\\branch-bg.png"
-    },
-    {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\caf9f3f9-bafa-49f3-a5ed-8bc9475bc43f-photo1711509081 (2).jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\caf9f3f9-bafa-49f3-a5ed-8bc9475bc43f-photo1711509081 (2).jpeg"
     },
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\cda4ff5d-b573-4485-8f6c-61acace379a4-photo1711307501 (1).jpeg",
@@ -537,12 +525,20 @@
       "PackagePath": "staticwebassets\\assets\\images\\f3c697b9-cf12-4c17-b6d9-3d0ac10bdb48-download.jpeg"
     },
     {
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\f485c59d-e9f9-481f-b696-c71fbaefab96-03_coffee.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\f485c59d-e9f9-481f-b696-c71fbaefab96-03_coffee.jpg"
+    },
+    {
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\f8f68203-5b3a-4764-9485-1bff5ac3e29c-product-new-03.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\f8f68203-5b3a-4764-9485-1bff5ac3e29c-product-new-03.jpg"
+    },
+    {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\f93e9849-e033-49cc-b53c-d713677bdfe8-photo1717329136.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\f93e9849-e033-49cc-b53c-d713677bdfe8-photo1717329136.jpeg"
     },
     {
-      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\fb6934d4-de9a-4a28-858e-639b164ec79e-photo1711307501 (2).jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\fb6934d4-de9a-4a28-858e-639b164ec79e-photo1711307501 (2).jpeg"
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\fa3cc6f7-e01c-4631-ab92-7ab5029b7e23-product-new-02.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\fa3cc6f7-e01c-4631-ab92-7ab5029b7e23-product-new-02.jpg"
     },
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\images\\footer-bg.jpg",
@@ -703,6 +699,10 @@
     {
       "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\js\\partials.js",
       "PackagePath": "staticwebassets\\assets\\js\\partials.js"
+    },
+    {
+      "Id": "C:\\Users\\elekb\\Downloads\\New folder\\KaffaMaster\\KaffaMaster\\wwwroot\\assets\\templates\\index.html",
+      "PackagePath": "staticwebassets\\assets\\templates\\index.html"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.KaffaMaster.Microsoft.AspNetCore.StaticWebAssets.props",

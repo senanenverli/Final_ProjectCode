@@ -69,7 +69,7 @@
                 <div class="d-flex justify-content-between align-items-center py-3">
                     <div class="d-flex gap-4 align-items-center icons-left">
                         <div class="icons">
-                            <a href="~/pages/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+                            <a asp-action="Index" asp-controller="orders"><i class="fa-solid fa-bag-shopping"></i></a>
                         </div>
                         <div class="icons d-flex justify-content-center align-items-center">
                             <p id="cart-amount">0</p>
@@ -119,7 +119,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="faq.html" class="langdata">FAQ <i class="fa-solid fa-chevron-left" aria-hidden="true"></i></a>
+                                <a asp-action="Index" asp-controller="FAQ" class="langdata">FAQ <i class="fa-solid fa-chevron-left" aria-hidden="true"></i></a>
                             </li>
                             <li>
                                 <a asp-action="index"asp-controller="Shop" class="langdata">
@@ -142,9 +142,6 @@
                             <a href="tel:0905-456-987-3">0905-456-987-3</a>
                         </div>
                         <div class="d-none d-xl-flex gap-4 icons-right">
-                            <button class="brands d-flex justify-content-center align-items-center dark-mode-btn">
-                                <i class="fa-solid fa-moon"></i>
-                            </button>
                             <div class="brands d-flex justify-content-center align-items-center">
                                 @if (User.Identity.IsAuthenticated)
                                 {
@@ -158,14 +155,14 @@
                                 }
                             </div>
                             <div class="brands d-flex justify-content-center align-items-center">
-                                <a href="../pages/cart.html"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></a>
-                                <div class="shopping-amount d-flex justify-content-center align-items-center">
+                                <a asp-action="index" asp-controller="orders"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></a>
+                                @* <div class="shopping-amount d-flex justify-content-center align-items-center">
                                     <p id="cart-amount2">0</p>
-                                </div>
+                                </div> *@
                             </div>
-                            <div class="brands d-flex justify-content-center align-items-center">
-                                <button class="lang-btn"><p>AZ</p></button>
-                            </div>
+                            <button class="brands d-flex justify-content-center align-items-center dark-mode-btn">
+                                <i class="fa-solid fa-moon"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -194,12 +191,71 @@
     </header>
 	@RenderBody()
     <footer>
+        <div class="background"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="img-container">
+                        <img src="../assets/images/kaffa_logo_light_2x.png" alt="">
+                    </div>
+                    <p class="my-5">
+                        Etiam consequat sem ullamcorper, euismod
+                        metus sit amet, tristique justo. Vestibulum
+                        mattis, nisi ut.
+                    </p>
+                    <div class="icons d-flex gap-5">
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4 mt-5 mt-lg-0   ">
+                    <h2 class="langdata">Contact Info</h2>
+                    <div class="d-flex my-4 gap-3">
+                        <div><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h6 class="langdata">Our location</h6>
+                            <p>Rio de Janeiro, RJ Brazil, 04103 Route</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <div><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h6 class="langdata">Phones:</h6>
+                            <div>
+                                <a href="tel:+49078-039-23-11">
+                                    +49078-039-23-11
+                                </a>
+                            </div>
+                            <div>
+                                <a href="tel:+49078-028-55-60">
+                                    +49078-028-55-60
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 d-none d-xl-block col-xl-4">
+                    <h2 class="langdata">Subscribe</h2>
+                    <form class="mt-4" action="">
+                        <div>
+                            <input placeholder="Your email ..." class="email" type="email">
+                            <button class="langdata">Subscribe</button>
+                        </div>
+                        <div class="mt-4">
+                            <input type="checkbox">
+                            <label for="" class="langdata">I have read and agree to the terms & conditions</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </footer>
-    @section Scriptss {
-        <script src="~/Backend/Js/script.js" asp-append-version="true"></script>
-    }
-    <script src="~/assets/js/partials.js"></script> @* 
-    <script src="~/assets/js/index.js"></script>  *@
+
+    <script src="~/Backend/Js/script.js"></script>
+    <script src="~/assets/js/partials.js"></script>
+    <script src="~/assets/js/index.js"></script>
 </body>
 
 </html>

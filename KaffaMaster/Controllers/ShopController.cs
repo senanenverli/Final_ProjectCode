@@ -1,13 +1,10 @@
 ﻿using KaffaMaster.Contexts;
+using KaffaMaster.Models;
+using MailKit.Search;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
-using MimeKit.Tnef;
-using KaffaMaster.Models;
-using Microsoft.AspNetCore.Identity;
-using System.Linq;
-using KaffaMaster.ViewModel;
-using MailKit.Search;
 
 namespace KaffaMaster.Controllers;
 
@@ -21,24 +18,20 @@ public class ShopController : Controller
         _userManager = userManager;
     }
 
-    public async Task<IActionResult> Index(string? input,int? categoryId)
+    public async Task<IActionResult> Index(string? input, int? categoryId)
     {
-        int productCount = await _context.Products.Where(p => !p.isDeleted).CountAsync();
-        ViewBag.ProductCount = productCount;
-        IQueryable<Product> query = _context.Products.AsQueryable(); 
-        ViewData["Categories"] = await _context.Categories.ToListAsync();
-        if(categoryId!=null){
-            
-            query = query.Where(p=> p.CategoryId==categoryId);
-        
-        }
-        if(input != null)
+        ViewData["Categories"] = await _context.Categories.Where(n => !n.isDeleted).ToListAsync();
+        if (categoryId != null && input == null)
         {
-                var searchTerm = input.ToLower();
-                var filteredProducts = await _context.Products.Where(p => p.Title.ToLower().Contains(searchTerm)).Where(p => !p.isDeleted).Include(p => p.Category).ToListAsync();
-                return View(filteredProducts);
+            var filteredProducts = await _context.Products.Where(p => p.CategoryId == categoryId).Where(p => !p.isDeleted).Include(p => p.Category).ToListAsync();
+            return View(filteredProducts);
+        }else if (input != null && categoryId == null)
+        {
+            var filteredProducts = await _context.Products.Where(p => p.Title.ToLower().Contains(input.ToLower())).Where(p => !p.isDeleted).Include(p => p.Category).ToListAsync();
+            return View(filteredProducts);
         }
-        var products = await _context.Products.Where(p => p.isStocked).Where(p => !p.isDeleted).Include(p => p.Category).ToListAsync();
+
+        var products = await _context.Products.Where(p => p.isStocked).Where(p => !p.isDeleted).Take(8).Include(p => p.Category).ToListAsync();
         return View(products);
     }
     [Authorize]
@@ -51,44 +44,35 @@ public class ShopController : Controller
         }
         var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-        var basketItem = await _context.BasketItems.FirstOrDefaultAsync(b => b.ProductId == productId && b.AppUserId == user.Id);
+        var basketItem = await _context.BasketItems.Include(n => n.Products).FirstOrDefaultAsync(b => b.AppUserId == user.Id);
         if (basketItem == null)
         {
-
-            BasketItem newasketItem = new BasketItem()
+             basketItem = new BasketItem()
             {
-                ProductId = productId,
                 AppUserId = user.Id,
-                Count = 1,
+                Count = 0,
                 CreatedDate = DateTime.UtcNow,
+                Products = new List<Product>()
             };
 
-            await _context.BasketItems.AddAsync(newasketItem);
+            await _context.BasketItems.AddAsync(basketItem);
+
+            //basketItem.Products.Add(product);
         }
         else
         {
+            basketItem.Products.Add(product);
             basketItem.Count++;
+            _context.BasketItems.Update(basketItem);
         }
+        //_context.BasketItems.Update(basketItem);
         await _context.SaveChangesAsync();
 
 
         return RedirectToAction(nameof(Index));
     }
 
-    //[HttpGet]
-    //public async Task<IActionResult> Search(string input)
-    //{
-    //    if (input != null)
-    //    {
-    //        var searchTerm = input.ToLower();
-    //        var filteredProducts = await _context.Products.Where(p => p.Title.ToLower().Contains(searchTerm)).Where(p => !p.isDeleted).Include(p => p.Category).ToListAsync();
-    //        return View(filteredProducts);
-    //    }
-    //    else
-    //    {
-    //        return View(null);
-    //    }
-    //}
+    
     public async Task<IActionResult> LoadMore(int skip)
     {
         int productCount = await _context.Products.Where(p => !p.isDeleted).CountAsync();

@@ -57,7 +57,7 @@ public class UserController : Controller
 
         string link = Url.Action("ConfirmEmail", "Auth", new { email = appUser.Email, token }, HttpContext.Request.Scheme, HttpContext.Request.Host.Value);
 
-        string body = $"<a href='{link}'>Confirm your email</a>";
+        string body = $"<button><a href='{link}'>Confirm your email</a></button>";
 
         EmailHelper emailHelper = new EmailHelper(_configuration);
         await emailHelper.SendEmailAsync(new MailRequest { ToEmail = appUser.Email, Subject = "Confirm Email", Body = body });

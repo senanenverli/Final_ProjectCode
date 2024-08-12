@@ -16,9 +16,8 @@ public class KaffaDbContext : IdentityDbContext<AppUser>
     public DbSet<Brand> Brands { get; set; } = null!;
     public DbSet<Comment> Comments { get; set; }
     public DbSet<Blog> Blogs { get; set; }
-    public DbSet<BasketItem> BasketItems { get; set; } = null!;
+    public DbSet<BasketItem> BasketItems { get; set; }
     public DbSet<Order> Orders { get; set; }
-    public DbSet<EmailSubscription>  emailSubscriptions { get; set; }
 
     //public DbSet<Setting> Settings { get; set; } = null!;
 }

@@ -1,18 +1,39 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using KaffaMaster.Models; 
+using KaffaMaster.Models;
+using Microsoft.AspNetCore.Identity;
+using KaffaMaster.Contexts;
 
 public class SubscriptionController : Controller
 {
+    private readonly UserManager<AppUser> _userManager;
+
+    public SubscriptionController(UserManager<AppUser> userManager)
+    {
+        _userManager = userManager;
+    }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Subscribe(SubscriptionViewModel subscriptionViewModel)
+    public async Task<IActionResult> Subscribe(SubscriptionViewModel subscriptionViewModel)
     {
-        if (ModelState.IsValid)
+        AppUser user = await _userManager.FindByEmailAsync(subscriptionViewModel.Email.Trim());
+        if (user == null)
         {
-            return RedirectToAction("ThankYou");
+            ModelState.AddModelError("", "istifadeci adi ve ya email yanlisdir");
+            return RedirectToAction("Index", "Home");
         }
 
-        return RedirectToAction("Index", "Home"); 
+        user.IsSubscribed = true;
+        IdentityResult result = await _userManager.UpdateAsync(user);
+
+        if (!result.Succeeded)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+        }
+        return RedirectToAction("Index","Home");
     }
 
     public IActionResult ThankYou()

@@ -2,6 +2,7 @@
 using KaffaMaster.Contexts;
 using KaffaMaster.Models;
 using KaffaMaster.ViewModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -12,13 +13,15 @@ public class ProductController : Controller
 {
     private readonly KaffaDbContext _context;
     private readonly EmailHelper emailHelper;
-    public ProductController(KaffaDbContext context, EmailHelper emailHelper)
+    private readonly UserManager<AppUser> _userManager;
+    public ProductController(KaffaDbContext context, EmailHelper emailHelper, UserManager<AppUser> userManager)
     {
         _context = context;
         this.emailHelper = emailHelper;
+        _userManager = userManager;
     }
 
-    
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("Title,Price")] Product product)
@@ -29,7 +32,7 @@ public class ProductController : Controller
             await _context.SaveChangesAsync();
 
             
-            var subscriptions = await _context.emailSubscriptions.ToListAsync();
+            var subscriptions = await _userManager.Users.Where(n => n.IsSubscribed == true).ToListAsync();
             var subject = "New Product Added";
             var productLink = Url.Action("Details", "Products", new { id = product.Id }, Request.Scheme);
 

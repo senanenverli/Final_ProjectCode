@@ -14,7 +14,7 @@ public class UserUpdateViewModel
 	public string? CurrentPassword { get; set; }
 	[DataType(DataType.Password), MinLength(8)]
 	public string? NewPassword { get; set; }
-	public string PosterImage { get; set; }
+	//public string PosterImage { get; set; }
 	//	[DataType(DataType.Password), MinLength(8), Compare(nameof(NewPassword))]
 	//	public string? ConfirmNewPassword { get; set; }
 }
